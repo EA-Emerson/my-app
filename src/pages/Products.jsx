@@ -126,7 +126,7 @@ const Products = () => {
         {productCards.map((productCard) => (
           <div
             key={productCard.id}
-            className="lg:h-[40vh] md:h-[28vh] h-[20vh] text-center mb-[5rem] lg:mb-[7rem]"
+            className="lg:h-[20vw] md:h-[30vw] h-[20vh] text-center mb-[5rem] lg:mb-[7rem]"
           >
             <img
               src={productCard.image}
@@ -147,15 +147,15 @@ const Products = () => {
           </div>
         ))}
       </div>
-      <div className="flex content-center justify-center mb-8">
-        {pages.map((page) => (
+      <div className="flex flex-wrap justify-center py-4">
+        {pages.map((page, index) => (
           <button
-            key={page}
+            key={index}
             className={`${
               activeButton === page + 1
                 ? "bg-[#27493E] text-white"
                 : "text-[#27493E] border-[#27493E] border-2"
-            } w-10 content-center mx-2  font-semibold h-10 text-center rounded-full `}
+            } flex items-center justify-center w-5 h-5 text-xs md:text-base md:w-10 md:h-10 mx-1 md:mx-2 font-semibold rounded-full`}
             onClick={() => handleButtonClick(page + 1)}
           >
             {page}
