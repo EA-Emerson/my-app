@@ -62,7 +62,7 @@ const Cart = () => {
             Complete
           </Link>
         </div>
-        <div className="lg:flex-row flex flex-col lg:px-4 py-4 h-fit lg:h-[40vh] space-x-10">
+        <div className="lg:flex-row flex w-[full] flex-col lg:px-4 py-4 h-fit lg:h-[40vh] space-x-10">
           <div className="w-full lg:w-3/5 h-full flex flex-col justify-between space-y-4">
             {items.map((item) => (
               <div key={item.id} className="flex w-full items-center">
@@ -115,10 +115,37 @@ const Cart = () => {
                 </div>
               </div>
             ))}
+            <div className="lg:hidden block mt-6 lg:mt-6 p-4 self-center bg-[#FAF7F2] rounded-lg h-full w-full">
+            <div className="flex md:items-center md:text-center justify-between mb-2">
+              <span className="font-semibold text-left text-xl md:text-2xl lg:text-3xl m-auto">
+                Order Summary
+              </span>
+            </div>
+            {selectedItems.map((item) => (
+              <div
+                key={item.id}
+                className="flex items-center justify-between mb-2"
+              >
+                <span className="text-[10px] md:text-xs lg:text-sm">
+                  {item.name} ({quantities[item.id]})
+                </span>
+                <span className="text-[10px] md:text-xs lg:text-sm">${item.price * quantities[item.id]}</span>
+              </div>
+            ))}
+            <div className="flex items-center justify-between font-bold">
+              <span className="text-[10px] md:text-xs lg:text-sm">Total:</span>
+              <span className="text-[10px] md:text-xs lg:text-sm">${totalPrice}</span>
+            </div>
+            <Link to="/checkout">
+              <button className="w-full mt-4 text-[10px] md:text-xs lg:text-sm px-[5vw] py-3 text-center bg-[#27493E] text-white rounded-lg">
+                Checkout ({totalCheckedItems})
+              </button>
+            </Link>
+          </div>
           </div>
 
-          <div className="lg:w-2/5 p-4 bg-[#FAF7F2] rounded-lg h-full">
-            <div className="flex md:items-center text-left md:text-center justify-between mb-2">
+          <div className="lg:w-2/5 lg:block hidden mt-6 lg:mt-6 p-4 self-center bg-[#FAF7F2] rounded-lg h-full w-full">
+            <div className="flex md:items-center md:text-center justify-between mb-2">
               <span className="font-semibold text-left text-xl md:text-2xl lg:text-3xl m-auto">
                 Order Summary
               </span>
