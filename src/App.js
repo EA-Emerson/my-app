@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { FaSun, FaMoon } from "react-icons/fa";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
