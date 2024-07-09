@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 
 const TabComponent = () => {
-  const [selectedTab, setSelectedTab] = useState("Description");
+  const [openTab, setOpenTab] = useState(null);
 
-  const renderContent = () => {
-    switch (selectedTab) {
+  const toggleTab = (tab) => {
+    if (openTab === tab) {
+      setOpenTab(null);
+    } else {
+      setOpenTab(tab);
+    }
+  };
+
+  const renderContent = (tab) => {
+    switch (tab) {
       case "Description":
         return (
           <p>
@@ -43,23 +51,45 @@ const TabComponent = () => {
   };
 
   return (
-    <div className="w-full  mx-auto pt-8">
-      <div className="flex justify-between border-b-2 border-gray-200 mb-4">
+    <div className="w-full mx-auto pt-8">
+      <div className="hidden lg:flex justify-between border-b-2 border-gray-200 mb-4">
         {["Description", "Shipping", "Reviews", "Return Policy"].map((tab) => (
           <button
             key={tab}
-            className={`px-4 py-2 text-2xl font-semibold ${
-              selectedTab === tab
+            className={`lg:px-4 lg:py-2 lg:text-2xl font-semibold ${
+              openTab === tab
                 ? "text-[#27493E] border-b-4 border-[#27493E]"
                 : "text-gray-600"
             }`}
-            onClick={() => setSelectedTab(tab)}
+            onClick={() => toggleTab(tab)}
           >
             {tab}
           </button>
         ))}
       </div>
-      <div className="text-gray-800">{renderContent()}</div>
+      
+      <div className="lg:hidden">
+        {["Description", "Shipping", "Reviews", "Return Policy"].map((tab) => (
+          <div key={tab} className="border-b border-gray-300 px-[4vw] mb-4">
+            <button
+              className="w-full flex justify-between items-center py-4 px-2 font-semibold text-lg text-gray-800"
+              onClick={() => toggleTab(tab)}
+            >
+              <span className="">{tab}</span>
+              <span>{openTab === tab ? "-" : "+"}</span>
+            </button>
+            {openTab === tab && (
+              <div className="py-4 px-2 text-sm text-gray-800">
+                {renderContent(tab)}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      {/* Content for Desktop */}
+      <div className="hidden lg:block text-gray-800">
+        {openTab && renderContent(openTab)}
+      </div>
     </div>
   );
 };

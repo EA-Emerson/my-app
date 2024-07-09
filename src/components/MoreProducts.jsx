@@ -27,22 +27,22 @@ const MoreProducts = () => {
     },
   ];
   return (
-    <div className="w-[80vw] mx-auto mt-12">
-      <p className="font-semibold text-2xl">
+    <div className="w-[80vw] mx-auto mt-2 md:mt-8 lg:mt-12">
+      <p className="font-semibold text-lg md:text-xl lg:text-2xl">
         You can check out similar products
       </p>
-      <div className="grid mx-auto my-8 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-8">
+      <div className="grid mx-auto md:my-4 lg:my-8 lg:grid-cols-4 grid-cols-2 gap-4 md:gap-6 lg:gap-8">
         {productCards.map((productCard) => (
-          <div key={productCard.id} className="h-[40vh] text-center mb-[7rem]">
+          <div key={productCard.id} className="md:h-[30vh] h-[20vh] lg:h-[40vh] text-center mb-[5rem] lg:mb-[7rem]">
             <img
               src={productCard.image}
-              className="cover-fill h-full w-full rounded-3xl"
+              className="cover-fill h-full w-full rounded-xl md:rounded-2xl lg:rounded-3xl"
               alt={productCard.title}
             />
-            <p className="font-semibold pt-2">{productCard.title}</p>
-            <p className="font-semibold pt-2">$100</p>
+            <p className="font-semibold mt-1 lg:pt-2 text-xs md:text-base lg:text-lg">{productCard.title}</p>
+            <p className="font-semibold mt-1 lg:pt-2 text-xs md:text-base lg:text-lg">$100</p>
             <Link to="/details">
-              <button className="pt-2 text-[#27493E] font-semibold">
+            <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-xs md:text-base lg:text-lg transition transform duration-300 hover:bg-[#27493E] hover:text-white">
                 Shop Now
               </button>
             </Link>

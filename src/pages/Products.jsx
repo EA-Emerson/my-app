@@ -122,18 +122,25 @@ const Products = () => {
           Filter <img className="mt-1 w-5 h-5" src={filter} alt="filter" />
         </button>
       </div>
-      <div className="grid mx-auto my-8 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-8">
+      <div className="grid mx-auto my-8 lg:grid-cols-4 grid-cols-2 gap-4 md:gap-6 lg:gap-8">
         {productCards.map((productCard) => (
-          <div key={productCard.id} className="h-[40vh] text-center mb-[7rem]">
+          <div
+            key={productCard.id}
+            className="lg:h-[40vh] md:h-[28vh] h-[20vh] text-center mb-[5rem] lg:mb-[7rem]"
+          >
             <img
               src={productCard.image}
-              className="cover-fill h-full w-full rounded-3xl"
+              className="cover-fill h-full w-full rounded-xl md:rounded-2xl lg:rounded-3xl cursor-pointer"
               alt={productCard.title}
             />
-            <p className="font-semibold pt-2">{productCard.title}</p>
-            <p className="font-semibold pt-2">$100</p>
+            <p className="font-semibold pt-1 md:pt-2 lg:pt-2 text-[9px] md:text-sm lg:text-base">
+              {productCard.title}
+            </p>
+            <p className="font-semibold pt-1 md:pt-2  lg:pt-2 text-[9px] md:text-sm lg:text-base">
+              $100
+            </p>
             <Link to="/details">
-              <button className="pt-2 text-[#27493E] font-semibold">
+              <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] hover:text-white">
                 Shop Now
               </button>
             </Link>

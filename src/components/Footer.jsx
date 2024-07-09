@@ -3,7 +3,19 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="bg-[#27493E] text-white py-8 px-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="md:hidden">
+        <ul>
+          <li className="pt-4 cursor-pointer hover:font-bold text-sm">Company</li>
+          <li className="pt-4 cursor-pointer hover:font-bold text-sm">Legal</li>
+          <li className="pt-4 cursor-pointer hover:font-bold text-sm">Quick Links</li>
+          <li className="pt-4 cursor-pointer hover:font-bold text-sm">Help and Information</li>
+        </ul>
+        <div className="w-16 h-16 border-white border-2 rounded-full p-4 flex items-center justify-center mt-12 mx-auto">
+          <h2 className="text-base font-bold">dEKOR</h2>
+        </div>
+        </div>
+      <div className="hidden md:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-sm">
             <h2 className="font-bold mb-4 text-sm">Company</h2>

@@ -67,7 +67,7 @@ const Payment = () => {
                   <label className="block text-sm font-medium">CVV</label>
                   <input
                     type="text"
-                    className="mt-1 p-2 w-full border rounded-md"
+                    className="mt-1 p-2 text-xs w-full border rounded-md"
                     placeholder="Enter the CVV"
                   />
                 </div>
