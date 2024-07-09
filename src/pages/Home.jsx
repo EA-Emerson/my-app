@@ -96,7 +96,7 @@ const Home = () => {
       <main className="">
         <section className="mb-4 md:mb-6 lg:mb-8 py-4 md:py-8 lg:py-12 w-[80%] flex flex-col mx-auto ">
           <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold mb-4 md:mb-6 lg:mb-8">Categories</h2>
-          <div className="grid grid-cols-2 grid-rows-3 md:grid-rows-2 md:grid-cols-3 lg:h-full gap-4 w-full md:gap-6 lg:gap-8 h-[70vh]">
+          <div className="grid grid-cols-2 grid-rows-3 md:grid-rows-2 md:grid-cols-3 md:h-full m-auto gap-4 lg:w-[80%] w-full md:gap-6 lg:gap-8 h-[70vh]">
             <div className="cursor-pointer relative h-full lg:h-full flex items-center justify-center col-span-1 row-span-2 lg:rounded-3xl">
               <img
                 src={flower}
@@ -149,7 +149,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="bg-[#FAF7F2] mb-4 md:mb-6 lg:mb-8 py-4 md:py-8 lg:py-12 w-full lg:w-[80%] flex flex-col mx-auto">
+        <section className="bg-[#FAF7F2] mb-4 md:mb-6 lg:mb-8 py-4 md:py-8 lg:py-12 w-full lg:px-[10vw] flex flex-col mx-auto">
           <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold md:mb-6 mb-4 lg-:mb-8">Top Products</h2>
           <div className="grid w-4/5 mx-auto h-fit lg:h-full  grid-cols-3 md:grid-cols-3 md:gap-6 gap-2 lg:gap-8">
             {productCards.map((productCard) => (
