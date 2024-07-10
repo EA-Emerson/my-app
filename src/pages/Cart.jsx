@@ -8,6 +8,7 @@ import elephantTusk from "../assets/weird statues.png";
 
 import roundNestingTable from "../assets/center table.png";
 import MoreProducts from "../components/MoreProducts";
+import back from "../assets/back-arrow-navigation-svgrepo-com.png"
 const Cart = () => {
   const items = [
     {
@@ -49,7 +50,13 @@ const Cart = () => {
     <div>
       <main className="container w-[86vw] mx-[auto] lg:px-4 pt-8">
         <div>
-          <span className="text-sm font-bold text-[#27493E]">Cart / </span>
+        
+          <span className="text-sm font-bold text-[#27493E]"> <Link
+          to="/"
+          className="text-gray-800 inline-flex dark:text-gray-100 px-2 hover:text-gray-600 dark:hover:text-gray-400 rounded-md text-sm font-medium items-center"
+        >
+          <img className="w-4 h-3" src={back} alt="back to home" />
+        </Link>Cart / </span>
           <Link to="/checkout" className="text-sm">
             Checkout
           </Link>{" "}

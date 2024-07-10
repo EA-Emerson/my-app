@@ -3,6 +3,7 @@ import filter from "../assets/filter-funnel-processing-svgrepo-com.png";
 import blackChair from "../assets/black chair.png";
 import curtain from "../assets/curtain cate.png";
 import hangingLight from "../assets/vertical lights.png";
+import cart from "../assets/shopping-cart-product-svgrepo-com.png"
 // import roundCenterTable from "../assets/center table.png";
 import elephantTusk from "../assets/weird statues.png";
 import luxuryTable from "../assets/side table.png";
@@ -123,30 +124,36 @@ const Products = () => {
         </button>
       </div>
       <div className="grid mx-auto my-8 lg:grid-cols-4 grid-cols-2 gap-4 md:gap-6 lg:gap-8">
-        {productCards.map((productCard) => (
-          <div
-            key={productCard.id}
-            className="lg:h-[20vw] md:h-[30vw] h-[20vh] text-center mb-[5rem] lg:mb-[7rem]"
+      {productCards.map((productCard) => (
+        <div
+          key={productCard.id}
+          className="relative lg:h-[20vw] md:h-[30vw] h-[20vh] text-center mb-[5rem] lg:mb-[7rem]"
+        >
+          <img
+            src={productCard.image}
+            className="cover-fill h-full w-full rounded-xl md:rounded-2xl lg:rounded-3xl cursor-pointer"
+            alt={productCard.title}
+          />
+          <Link
+            to="/cart"
+            className="absolute top-2 right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 md:px-2 px-1 lg:px-3 py-1 lg:py-2 rounded-md text-sm font-medium flex items-center transition transform duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg"
           >
-            <img
-              src={productCard.image}
-              className="cover-fill h-full w-full rounded-xl md:rounded-2xl lg:rounded-3xl cursor-pointer"
-              alt={productCard.title}
-            />
-            <p className="font-semibold pt-1 md:pt-2 lg:pt-2 text-[9px] md:text-sm lg:text-base">
-              {productCard.title}
-            </p>
-            <p className="font-semibold pt-1 md:pt-2  lg:pt-2 text-[9px] md:text-sm lg:text-base">
-              $100
-            </p>
-            <Link to="/details">
-              <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] hover:text-white">
-                Shop Now
-              </button>
-            </Link>
-          </div>
-        ))}
-      </div>
+            <img className="w-5" src={cart} alt="cart" />
+          </Link>
+          <p className="font-semibold pt-1 md:pt-2 lg:pt-2 text-[9px] md:text-sm lg:text-base">
+            {productCard.title}
+          </p>
+          <p className="font-semibold pt-1 md:pt-2  lg:pt-2 text-[9px] md:text-sm lg:text-base">
+            $100
+          </p>
+          <Link to="/details">
+            <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] hover:text-white">
+              Shop Now
+            </button>
+          </Link>
+        </div>
+      ))}
+    </div>
       <div className="flex flex-wrap justify-center py-4">
         {pages.map((page, index) => (
           <button

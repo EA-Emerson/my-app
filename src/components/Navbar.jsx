@@ -14,6 +14,16 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const handleSearchClick = (e) => {
+    e.preventDefault();
+    setIsSearchOpen(true);
+  };
+
+  const handleCloseClick = () => {
+    setIsSearchOpen(false);
+  };
   // const [darkMode, setDarkMode] = useState(false);
 
   // useEffect(() => {
@@ -34,20 +44,19 @@ const Navbar = () => {
   // };
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 py-[3vh] z-50 flex px-[7%] justify-between">
-
-        <button className="md:hidden block" onClick={toggleMenu}>
-          {isOpen ? (
-            <img className="w-5 h-5" src={close} alt="menu close icon" />
-          ) : (
-            <img className="w-5 h-5" src={menu} alt="menu icon" />
-          )}
-        </button>
+      <button className="md:hidden block" onClick={toggleMenu}>
+        {isOpen ? (
+          <img className="w-5 h-5" src={close} alt="menu close icon" />
+        ) : (
+          <img className="w-5 h-5" src={menu} alt="menu icon" />
+        )}
+      </button>
       {isOpen && (
         <div className="fixed left-0 right-0 bg-white mt-[5vh] rounded-lg shadow-lg">
           <div className="py-2">
             <Link
               to="/"
-              className="block text-gray-700 px-4 py-2"
+              className="block md:hidden text-gray-700 px-4 py-2"
               onClick={() => setIsOpen(false)}
             >
               Home
@@ -112,12 +121,32 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex items-center ">
-        <Link
-          to="/"
-          className="text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium flex items-center"
+      <div className="relative">
+      <div className="flex items-center">
+        <button
+          className="text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-1 lg:py-2 rounded-md text-sm font-medium"
+          onClick={handleSearchClick}
         >
           <img className="w-5" src={search} alt="search" />
-        </Link>
+        </button>
+        {isSearchOpen && (
+          <div className="absolute top-full left-0 right-0 bg-white z-10 p-2 border-t-2 border-gray-800 rounded-md shadow-lg mt-2 w-[40vw] md:w-[20vw] lg:w-[15vw] mr-4 md:mr-6 lg:mr-8">
+          <input
+            type="text"
+            name="text"
+            className="w-full px-2 py-1 active:border-none active:outline-none text-xs lg:text-base"
+            placeholder="Input your search"
+          />
+            <button
+              className="absolute top-2 right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400"
+              onClick={handleCloseClick}
+            >
+              &times;
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
         <Link
           to="/"
           className="text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium flex items-center"
@@ -132,7 +161,7 @@ const Navbar = () => {
         </Link>
 
         <Link
-          to="/profile"
+          to="/"
           className="text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium flex items-center"
         >
           <img className="w-5" src={user} alt="user profile" />

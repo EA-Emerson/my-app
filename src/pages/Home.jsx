@@ -6,6 +6,7 @@ import Explore from "./Explore";
 import flower from "../assets/black flower vase.png";
 import fatLight from "../assets/fat lights.png";
 // import centerTable from "../assets/center table.png";
+import cart from "../assets/shopping-cart-product-svgrepo-com.png";
 import vase from "../assets/vase.png";
 import weirdStatue from "../assets/weird statues.png";
 
@@ -94,10 +95,12 @@ const Home = () => {
     <div>
       <Explore />
       <main className="">
-        <section className="mb-4 md:mb-6 lg:mb-8 py-4 md:py-8 lg:py-12 w-[80%] flex flex-col mx-auto ">
-          <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold mb-4 md:mb-6 lg:mb-8">Categories</h2>
-          <div className="grid grid-cols-2 grid-rows-3 md:grid-rows-2 md:grid-cols-3 md:h-full m-auto gap-4 lg:w-[80%] w-full md:gap-6 lg:gap-8 h-[70vh]">
-            <div className="cursor-pointer relative h-full lg:h-full flex items-center justify-center col-span-1 row-span-2 lg:rounded-3xl">
+        <section className="mb-4 md:mb-6 lg:mb-8 py-4 md:py-8 lg:py-12 w-[80%] lg:w-full flex flex-col mx-auto ">
+          <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold mb-4 md:mb-6 lg:mb-8">
+            Categories
+          </h2>
+          <div className="grid grid-cols-2 grid-rows-3 md:grid-rows-2 md:grid-cols-3 md:h-1/2  m-auto gap-4 lg:w-[80%] w-full md:gap-6 lg:gap-16 h-[70vh]">
+            <div className="cursor-pointer relative h-full flex items-center justify-center col-span-1 row-span-2 lg:rounded-3xl">
               <img
                 src={flower}
                 alt="Flower Vase"
@@ -149,21 +152,30 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="bg-[#FAF7F2] mb-4 md:mb-6 lg:mb-8 py-4 md:py-8 lg:py-12 w-full lg:px-[10vw] flex flex-col mx-auto">
-          <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold md:mb-6 mb-4 lg-:mb-8">Top Products</h2>
+        <section className="bg-[#FAF7F2] mb-4 md:mb-6 lg:mb-8 py-4 md:py-8 lg:py-12 w-full flex flex-col mx-auto ">
+          <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold md:mb-6 mb-4 lg-:mb-8">
+            Top Products
+          </h2>
           <div className="grid w-4/5 mx-auto h-fit lg:h-full  grid-cols-3 md:grid-cols-3 md:gap-6 gap-2 lg:gap-8">
             {productCards.map((productCard) => (
-              <div className="h-[20vh] lg:h-full mb-8">
+              <div className="h-[20vh] lg:h-full md:mb-6 mb-4 lg:mb-8">
                 <div
                   key={productCard.id}
-                  className=" text-center lg:mb-[4rem] h-[30vh] lg:[h-full]"
+                  className="relative text-center lg:mb-[4rem] h-[25vh] md:[30vh] lg:[h-full]"
                 >
                   <Link to="/details">
                     <img
                       src={productCard.image}
-                      className="cover-fill h-2/5 lg:h-full w-full rounded-lg md:rounded-2xl lg:rounded-3xl cursor-pointer"
+                      className="cover-fill h-1/2 md:h-2/3 lg:h-full w-full rounded-lg md:rounded-2xl lg:rounded-3xl cursor-pointer"
                       alt={productCard.title}
                     />
+                  </Link>
+                  
+                  <Link
+                    to="/cart"
+                    className="absolute top-1 right-1  lg:top-2 lg:right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 md:px-2 px-1 lg:px-3 py-1 lg:py-2 rounded-md text-sm font-medium flex items-center transition transform duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg"
+                  >
+                    <img className="w-5 " src={cart} alt="cart" />
                   </Link>
                   <Link to="/details">
                     <p className="font-semibold  pt:[3vh] md:pt-1 lg:pt-2 text-[9px] md:text-xs lg:text-sm">
