@@ -119,7 +119,7 @@ const Home = () => {
             </div>
             <div className="cursor-pointer flex relative h-full lg:h-[45vh] items-center justify-center">
               <img
-                src={centerTable}
+                src={curtain}
                 alt="Curtains"
                 className="h-full w-full object-fill md:rounded-2xl rounded-xl  lg:rounded-3xl"
               />

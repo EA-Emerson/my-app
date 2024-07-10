@@ -92,19 +92,19 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            to="/about"
+            to="/"
             className="text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 rounded-md text-sm flex items-center"
           >
             About
           </Link>
           <Link
-            to="/contact"
+            to="/"
             className="text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 rounded-md text-sm flex items-center"
           >
             Contact
           </Link>
           <Link
-            to="/categories"
+            to="/"
             className="text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 rounded-md text-sm flex items-center"
           >
             Categories

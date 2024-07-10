@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import filter from "../assets/filter-funnel-processing-svgrepo-com.png";
 import blackChair from "../assets/black chair.png";
-import curtain from "../assets/black chair.png";
+import curtain from "../assets/curtain cate.png";
 import hangingLight from "../assets/vertical lights.png";
 // import roundCenterTable from "../assets/center table.png";
 import elephantTusk from "../assets/weird statues.png";
