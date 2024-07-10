@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Explore from "./Explore";
 import flower from "../assets/black flower vase.png";
 import fatLight from "../assets/fat lights.png";
-import centerTable from "../assets/center table.png";
+// import centerTable from "../assets/center table.png";
 import vase from "../assets/vase.png";
 import weirdStatue from "../assets/weird statues.png";
 
