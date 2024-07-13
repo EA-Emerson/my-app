@@ -1,115 +1,20 @@
 import React, { useState } from "react";
 import filter from "../assets/filter-funnel-processing-svgrepo-com.png";
-import blackChair from "../assets/black chair.png";
-import curtain from "../assets/curtain cate.png";
-import hangingLight from "../assets/vertical lights.png";
-import cart from "../assets/shopping-cart-product-svgrepo-com.png"
-// import roundCenterTable from "../assets/center table.png";
-import elephantTusk from "../assets/weird statues.png";
-import luxuryTable from "../assets/side table.png";
-import vase from "../assets/vase.png";
-import hangingLights from "../assets/weird light.png";
-import sofa from "../assets/grey arm chair.png";
-import doubleCoffeeBlack from "../assets/big black and white table.png";
-import fatLight from "../assets/fat lights.png";
-import doubleCoffee from "../assets/big round table.png";
-import bigSofa from "../assets/grey sofa.png";
-import roundNestingTable from "../assets/center table.png";
-import ovalCoffeeTable from "../assets/weird white and brown table.png";
-import flower from "../assets/flower vase.png";
+import cart from "../assets/shopping-cart-product-svgrepo-com.png";
 import { Link } from "react-router-dom";
 
-const Products = () => {
+const Products = ({ products, addToCart }) => {
   const [activeButton, setActiveButton] = useState(2);
   const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, ">"];
+
   const handleButtonClick = (buttonNumber) => {
     setActiveButton(buttonNumber);
   };
-  const productCards = [
-    {
-      image: blackChair,
-      title: "Flower Vase",
-      price: "100",
-    },
-    {
-      image: curtain,
-      title: "Exotic Curtains",
-      price: "100",
-    },
-    {
-      image: hangingLights,
-      title: "Hanging Light",
-      price: "100",
-    },
 
-    {
-      image: roundNestingTable,
-      title: "Round Lift Nesting Table",
-      price: "100",
-    },
-    {
-      image: elephantTusk,
-      title: "Elephant Tusk Ceramics",
-      price: "100",
-    },
-    {
-      image: luxuryTable,
-      title: "Marble End Table",
-      price: "100",
-    },
-    {
-      image: vase,
-      title: "Abstract Ceramic Structure",
-      price: "100",
-    },
-    {
-      image: hangingLight,
-      title: "Hanging Lights",
-      price: "100",
-    },
-    {
-      image: doubleCoffeeBlack,
-      title: "Double Coffee Table",
-      price: "100",
-    },
-    {
-      image: luxuryTable,
-      title: "Marble End Table",
-      price: "100",
-    },
-    {
-      image: doubleCoffee,
-      title: "Double Coffee Table",
-      price: "100",
-    },
-    {
-      image: ovalCoffeeTable,
-      title: "Oval Coffee Table",
-      price: "100",
-    },
-    {
-      image: sofa,
-      title: "Decorative sofa chair",
-      price: "100",
-    },
-    {
-      image: fatLight,
-      title: "Macaroon Light",
-      price: "100",
-    },
+  const handleAddToCart = (product) => {
+    addToCart(product);
+  };
 
-    {
-      image: bigSofa,
-      title: "Living Room Sofa",
-      price: "100",
-    },
-
-    {
-      image: flower,
-      title: "Decorative Plant",
-      price: "100",
-    },
-  ];
   return (
     <div className="mt-[10vh] py-8 flex flex-col w-4/5 mx-auto">
       <div className="flex justify-between">
@@ -123,37 +28,40 @@ const Products = () => {
           Filter <img className="mt-1 w-5 h-5" src={filter} alt="filter" />
         </button>
       </div>
-      <div className="grid mx-auto my-8 lg:grid-cols-4 grid-cols-2 gap-4 md:gap-6 lg:gap-8">
-      {productCards.map((productCard) => (
-        <div
-          key={productCard.id}
-          className="relative lg:h-[20vw] md:h-[30vw] h-[20vh] text-center mb-[5rem] lg:mb-[7rem]"
-        >
-          <img
-            src={productCard.image}
-            className="cover-fill h-full w-full rounded-xl md:rounded-2xl lg:rounded-3xl cursor-pointer"
-            alt={productCard.title}
-          />
-          <Link
-            to="/cart"
-            className="absolute top-2 right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 md:px-2 px-1 lg:px-3 py-1 lg:py-2 rounded-md text-sm font-medium flex items-center transition transform duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg"
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 my-8">
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="relative text-center mb-7 lg:mb-10"
           >
-            <img className="w-5" src={cart} alt="cart" />
-          </Link>
-          <p className="font-semibold pt-1 md:pt-2 lg:pt-2 text-[9px] md:text-sm lg:text-base">
-            {productCard.title}
-          </p>
-          <p className="font-semibold pt-1 md:pt-2  lg:pt-2 text-[9px] md:text-sm lg:text-base">
-            $100
-          </p>
-          <Link to="/details">
-            <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] hover:text-white">
-              Shop Now
+            <img
+              src={`https://api.timbu.cloud/images/${product.photos[0]?.url}`}
+              className="object-cover h-60 sm:h-72 md:h-80 lg:h-96 w-full rounded-xl cursor-pointer"
+              alt={product.name}
+            />
+            <Link
+              to="/cart"
+              className="absolute top-2 right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-1 lg:px-4 lg:py-2 rounded-md text-sm font-medium flex items-center transition duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg"
+            >
+              <img className="w-5" src={cart} alt="cart" />
+            </Link>
+            <p className="font-semibold pt-2 text-sm lg:text-base">
+              {product.name}
+            </p>
+            <p className="font-semibold pt-1 text-sm lg:text-base">
+              ${product.price}
+            </p>
+            <Link to={`/product/${product.id}`}>
+              <button className="mt-2 text-[#27493E] font-semibold text-sm lg:text-base transition duration-300 hover:bg-[#27493E] hover:text-white px-4 py-2 rounded-md">
+                Shop Now
+              </button>
+            </Link>
+            <button onClick={() => handleAddToCart(product)} className="mt-1 text-xs md:text-sm lg:text-base">
+              Add to Cart {product.quantity || 0}
             </button>
-          </Link>
-        </div>
-      ))}
-    </div>
+          </div>
+        ))}
+      </div>
       <div className="flex flex-wrap justify-center py-4">
         {pages.map((page, index) => (
           <button

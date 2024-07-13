@@ -8,7 +8,7 @@ import menu from "../assets/menu-svgrepo-com.png";
 import close from "../assets/close-svgrepo-com.png";
 // import { MdFavoriteBorder, MdShoppingCart } from "react-icons/md";
 
-const Navbar = () => {
+const Navbar = ({ cartItems }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -155,9 +155,10 @@ const Navbar = () => {
         </Link>
         <Link
           to="/cart"
-          className="text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium flex items-center"
+          className="relative text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium flex items-center"
         >
           <img className="w-5" src={cart} alt="cart" />
+          {/* <div className="absolute top-0 right-0">{cartItems.length}</div> */}
         </Link>
 
         <Link
