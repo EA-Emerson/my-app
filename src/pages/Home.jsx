@@ -103,7 +103,7 @@ const Home = ({ products }) => {
                   </Link>
                   <Link to="/details">
                     <p className="font-semibold pt-[3vh] md:pt-1 lg:pt-2 text-[9px] md:text-xs lg:text-sm">
-                      {product.title}
+                      {product.name}
                     </p>
                   </Link>
                   <p className="font-semibold pt-[3vh] md:pt-1 lg:pt-2 text-[10px] md:text-xs lg:text-sm">
