@@ -63,11 +63,11 @@ const Checkout = ({ cartItems }) => {
           <h3 className="font-bold mb-4">Order Summary</h3>
           <div className="flex justify-between mb-2">
             <span className="text-sm">Subtotal</span>
-            <span className="text-sm">${totalPrice.toFixed(2)}</span>
+            <span className="text-sm">NGN{totalPrice.toFixed(2)}</span>
           </div>
           <div className="flex justify-between mb-4">
             <span className="text-sm">Total</span>
-            <span className="text-sm">${grandTotal.toFixed(2)}</span>
+            <span className="text-sm">NGN{grandTotal.toFixed(2)}</span>
           </div>
           <div className="w-full flex justify-center items-center">
             <Link
