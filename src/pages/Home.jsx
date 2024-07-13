@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { v4 as uuidv4 } from "uuid";
 import Explore from "./Explore";
 import flower from "../assets/black flower vase.png";
 import fatLight from "../assets/fat lights.png";
@@ -82,11 +81,8 @@ const Home = ({ products }) => {
           </h2>
           <div className="grid w-4/5 mx-auto h-fit lg:h-full grid-cols-3 md:grid-cols-3 md:gap-6 gap-2 lg:gap-8">
             {productCards.map((product) => (
-              <div className="h-[20vh] lg:h-full md:mb-6 mb-4 lg:mb-8">
-                <div
-                  key={product.id}
-                  className="relative text-center lg:mb-[4rem] h-[25vh] md:[30vh] lg:[h-full]"
-                >
+              <div className="h-[20vh] lg:h-full md:mb-6 mb-4 lg:mb-8" key={product.id}>
+                <div className="relative text-center lg:mb-[4rem] h-[25vh] md:[30vh] lg:[h-full]">
                   <Link to="/details">
                     <img
                       src={`https://api.timbu.cloud/images/${product.photos[0]?.url}`}
@@ -102,7 +98,7 @@ const Home = ({ products }) => {
                     <img className="w-5 " src={cart} alt="cart" />
                   </Link>
                   <Link to="/details">
-                    <p className="font-semibold pt-[3vh] md:pt-1 lg:pt-2 text-[9px] md:text-xs lg:text-sm">
+                    <p className="font-semibold pt-[3vh] md:pt-1 lg:pt-2 text-[9px] md:text-xs lg:text-sm truncate w-full">
                       {product.name}
                     </p>
                   </Link>
