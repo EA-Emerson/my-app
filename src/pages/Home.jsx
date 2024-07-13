@@ -75,7 +75,7 @@ const Home = ({ products }) => {
         </section>
 
         {/* Top Products Section */}
-        <section className="bg-[#FAF7F2] mb-4 md:mb-6 lg:mb-8 py-4 md:py-8 lg:py-12 w-full flex flex-col mx-auto">
+        <section className="bg-[#FAF7F2] md:mb-6 lg:mb-8 py-4 md:py-8 lg:py-12 w-full flex flex-col mx-auto">
           <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold md:mb-6 mb-4 lg-:mb-8">
             Top Products
           </h2>
