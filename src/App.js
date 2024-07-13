@@ -8,7 +8,7 @@ import Contact from "./pages/Contact";
 import Categories from "./pages/Categories";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
-import Checkout from "./pages/Checkout";
+import Checkout from "./pages/checkout";
 import Products from "./pages/Products";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
