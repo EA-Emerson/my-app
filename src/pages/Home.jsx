@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import Explore from "./Explore";
 import flower from "../assets/black flower vase.png";
 import fatLight from "../assets/fat lights.png";

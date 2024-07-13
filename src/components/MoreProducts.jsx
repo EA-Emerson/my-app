@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 // import placeholderImage from "../assets/placeholder-image.png"; // Import a placeholder image for products without specific images
 
 const MoreProducts = ({ products }) => {
