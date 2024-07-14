@@ -155,7 +155,7 @@ const Cart = ({ cartItems, products, totalPrice }) => {
                     {item.name} ({quantities[item.id]})
                   </span>
                   <span className="text-[10px] md:text-sm lg:text-base">
-                    ${item.displayPrice}
+                    NGN{item.displayPrice}
                   </span>
                 </div>
               ))}
@@ -164,7 +164,7 @@ const Cart = ({ cartItems, products, totalPrice }) => {
                   Total:
                 </span>
                 <span className="text-[10px] md:text-sm lg:text-base">
-                  ${totalPrice}
+                  NGN{totalPrice}
                 </span>
               </div>
               <Link to="/checkout">
