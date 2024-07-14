@@ -7,6 +7,7 @@ const MoreProducts = ({ products }) => {
   if (!products || products.length === 0) {
     return <div>No products available</div>;
   }
+const productCards=products.slice(0,4)
 
   return (
     <div className="w-[80vw] mx-auto mt-2 md:mt-8 lg:mt-12">
@@ -14,7 +15,7 @@ const MoreProducts = ({ products }) => {
         You can check out similar products
       </p>
       <div className="grid mx-auto md:my-4 lg:my-8 lg:grid-cols-4 grid-cols-2 gap-4 md:gap-6 lg:gap-8">
-        {products.map((product) => (
+        {productCards.map((product) => (
           <div key={product.unique_id} className="md:h-[30vh] h-[20vh] lg:h-[40vh] text-center mb-[5rem] lg:mb-[7rem]">
             <img
               src={`https://api.timbu.cloud/images/${product.photos[0]?.url}`}
