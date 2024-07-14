@@ -129,7 +129,7 @@ const ProductDetails = ({ products, addToCart }) => {
       </div>
       <div className="md:mt-6 mt-4 lg:mt-8">
         {/* Tabs component */}
-        <TabComponent />
+        <TabComponent products={products}/>
       </div>
       <div className="md:mt-6 mt-4 lg:mt-8">
         {/* More products component */}
