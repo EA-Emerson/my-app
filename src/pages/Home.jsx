@@ -76,57 +76,57 @@ const Home = ({ products }) => {
 
         {/* Top Products Section */}
         <section className="bg-[#FAF7F2] py-4 md:py-8 lg:py-12 w-full flex flex-col mx-auto">
-          <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold md:mb-6 mb-4 lg-:mb-8">
-            Top Products
-          </h2>
-          <div className="grid w-4/5 mx-auto h-fit lg:h-full grid-cols-3 md:grid-cols-3 md:gap-6 gap-2 lg:gap-8">
-            {productCards.map((product) => (
-              <div className="h-[20vh] lg:h-full md:mb-6 mb-4 lg:mb-8" key={product.id}>
-                <div className="relative text-center lg:mb-[4rem] h-[25vh] md:[30vh] lg:[h-full]">
-                  <Link to="/details">
-                    <img
-                      src={`https://api.timbu.cloud/images/${product.photos[0]?.url}`}
-                      className="cover-fill h-1/2 md:h-2/3 lg:h-full w-full rounded-lg md:rounded-2xl lg:rounded-3xl cursor-pointer"
-                      alt={product.name}
-                    />
-                  </Link>
-                  
-                  <Link
-                    to="/cart"
-                    className="absolute top-1 right-1 lg:top-2 lg:right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 md:px-2 px-1 lg:px-3 py-1 lg:py-2 rounded-md text-sm font-medium flex items-center transition transform duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg"
-                  >
-                    <img className="w-5 " src={cart} alt="cart" />
-                  </Link>
-                  <Link to="/details">
-                    <p className="font-semibold pt-[3vh] md:pt-1 lg:pt-2 text-[9px] md:text-xs lg:text-sm truncate w-full">
-                      {product.name}
-                    </p>
-                  </Link>
-                  <p className="font-semibold pt-[3vh] md:pt-1 lg:pt-2 text-[10px] md:text-xs lg:text-sm">
-{product.current_price &&
-                      product.current_price[0] &&
-                      product.current_price[0].NGN &&
-                      product.current_price[0].NGN[0]
-                        ? `NGN${product.current_price[0].NGN[0]}`
-                        : `NGN${product.price}`}
-                  </p>
-                  <Link to={`/product/${product.unique_id}`}>
-                    <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] hover:text-white">
-                      Shop Now
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="m-auto">
-            <Link to="/products">
-              <button className="my-4 py-5 px-24 rounded-2xl bg-[#27493E] font-semibold text-white m-auto">
-                View All
-              </button>
-            </Link>
-          </div>
-        </section>
+  <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold md:mb-6 mb-4 lg:mb-8">
+    Top Products
+  </h2>
+  <div className="grid w-4/5 mx-auto h-fit lg:h-full grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+    {productCards.map((product) => (
+      <div className="h-[20vh] lg:h-full" key={product.id}>
+        <div className="relative text-center lg:mb-[4rem] h-[25vh] md:h-[30vh] lg:h-full">
+          <Link to="/details">
+            <img
+              src={`https://api.timbu.cloud/images/${product.photos[0]?.url}`}
+              className="cover-fill h-1/2 md:h-2/3 lg:h-full w-full rounded-lg md:rounded-2xl lg:rounded-3xl cursor-pointer"
+              alt={product.name}
+            />
+          </Link>
+
+          <Link
+            to="/cart"
+            className="absolute top-1 right-1 lg:top-2 lg:right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 md:px-2 px-1 lg:px-3 py-1 lg:py-2 rounded-md text-sm font-medium flex items-center transition transform duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg"
+          >
+            <img className="w-5" src={cart} alt="cart" />
+          </Link>
+          <Link to="/details">
+            <p className="font-semibold pt-2 md:pt-1 lg:pt-2 text-[9px] md:text-xs lg:text-sm truncate w-full">
+              {product.name}
+            </p>
+          </Link>
+          <p className="font-semibold pt-2 md:pt-1 lg:pt-2 text-[10px] md:text-xs lg:text-sm">
+            {product.current_price &&
+              product.current_price[0] &&
+              product.current_price[0].NGN &&
+              product.current_price[0].NGN[0]
+                ? `NGN${product.current_price[0].NGN[0]}`
+                : `NGN${product.price}`}
+          </p>
+          <Link to={`/product/${product.unique_id}`}>
+            <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] hover:text-white">
+              Shop Now
+            </button>
+          </Link>
+        </div>
+      </div>
+    ))}
+  </div>
+  <div className="m-auto">
+    <Link to="/products">
+      <button className="my-4 py-5 px-24 rounded-2xl bg-[#27493E] font-semibold text-white m-auto">
+        View All
+      </button>
+    </Link>
+  </div>
+</section>
       </main>
     </div>
   );
