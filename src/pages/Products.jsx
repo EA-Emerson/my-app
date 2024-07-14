@@ -61,8 +61,8 @@ const Products = ({ products, addToCart }) => {
                       Shop Now
                     </button>
 </Link>
-            <button onClick={() => handleAddToCart(product)} className="mt-1 text-xs md:text-sm lg:text-base">
-              Add to Cart {product.quantity || 0}
+            <button onClick={() => handleAddToCart(product)} className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] block hover:text-white">
+              Add to Cart
             </button>
           </div>
         ))}
