@@ -103,7 +103,12 @@ const Home = ({ products }) => {
                     </p>
                   </Link>
                   <p className="font-semibold pt-[3vh] md:pt-1 lg:pt-2 text-[10px] md:text-xs lg:text-sm">
-                    $100
+{product.current_price &&
+                      product.current_price[0] &&
+                      product.current_price[0].NGN &&
+                      product.current_price[0].NGN[0]
+                        ? `NGN${product.current_price[0].NGN[0]}`
+                        : `NGN${product.price}`}
                   </p>
                   <Link to={`/product/${product.unique_id}`}>
                     <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] hover:text-white">
