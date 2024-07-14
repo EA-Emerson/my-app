@@ -115,7 +115,7 @@ const Cart = ({ cartItems, products, totalPrice, setCartItems }) => {
                         : `NGN${cartItem.price}`}
                     </span>
                     <div className="flex space-x-4">
-                      <button onClick={() => handleDelete(cartItem.id)}>
+                      <button onClick={() => handleDelete(cartItem.unique_id)}>
                         <img className="h-5" src={del} alt="del" />
                       </button>
                       <button>
