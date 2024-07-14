@@ -22,7 +22,12 @@ const MoreProducts = ({ products }) => {
               alt={product.name}
             />
             <p className="font-semibold mt-1 lg:pt-2 text-xs md:text-base lg:text-lg">{product.name}</p>
-            <p className="font-semibold mt-1 lg:pt-2 text-xs md:text-base lg:text-lg">${product.price}</p>
+            <p className="font-semibold mt-1 lg:pt-2 text-xs md:text-base lg:text-lg">            {product.current_price &&
+              product.current_price[0] &&
+              product.current_price[0].NGN &&
+              product.current_price[0].NGN[0]
+                ? `NGN${product.current_price[0].NGN[0]}`
+                : `NGN${product.price}`}</p>
             <Link to={`/product/${product.unique_id}`}>
               <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-xs md:text-base lg:text-lg transition transform duration-300 hover:bg-[#27493E] hover:text-white">
                 Shop Now
