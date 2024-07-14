@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
-const TabComponent = () => {
+const TabComponent = ({products}) => {
   const [openTab, setOpenTab] = useState(null);
+  const { id } = useParams();
 
+  // Find the product using unique_id instead of id
+  const product = products.find((p) => p.unique_id === id);
   const toggleTab = (tab) => {
     if (openTab === tab) {
       setOpenTab(null);
@@ -16,13 +19,11 @@ const TabComponent = () => {
       case "Description":
         return (
           <p>
-            A modern table, designed to be nested when not in use, saving space
-            and allowing for easy storage.The lift up mechanism allows you to
-            raise the table's surface to a comfortable height.
+            {product.description}
           </p>
         );
       case "Shipping":
-        return <p>This table ships to your location.</p>;
+        return <p>This product ships to your location.</p>;
       case "Reviews":
         return <p>No reviews yet.</p>;
       case "Return Policy":
