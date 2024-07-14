@@ -45,19 +45,18 @@ const App = () => {
   }, []);
 
   const addToCart = (product, quantity) => {
-    const existingItem = cartItems.find((item) => item.id === product.unique_id);
-    if (existingItem) {
-      const updatedCartItems = cartItems.map((item) => {
-        if (item.id === product.unique_id) {
-          return { ...item, quantity: item.quantity + quantity };
-        }
-        return item;
-      });
-      setCartItems(updatedCartItems);
-    } else {
-      setCartItems([...cartItems, { ...product, quantity }]);
-    }
-  };
+  const existingItem = cartItems.find((item) => item.id === product.unique_id);
+
+  if (existingItem) {
+    // If the item already exists in the cart, do nothing or handle as needed
+    // You might want to notify the user or adjust quantities in a different way
+    console.log(`Item ${product.name} is already in the cart.`);
+    return;
+  }
+
+  // If the item doesn't exist in the cart, add it with the specified quantity
+  setCartItems((prevCartItems) => [...prevCartItems, { ...product, quantity }]);
+};
 const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
   return (
     <Router>
