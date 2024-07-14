@@ -9,7 +9,7 @@ import weirdStatue from "../assets/weird statues.png";
 import curtain from "../assets/curtain cate.png";
 
 const Home = ({ products }) => {
-  const productCards = products.slice(0, 4);
+  const productCards = products.slice(0, 9);
 
   return (
     <div>
