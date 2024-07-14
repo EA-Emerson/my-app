@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useParams } from "react-router-dom";
 const TabComponent = ({products}) => {
   const [openTab, setOpenTab] = useState(null);
   const { id } = useParams();
