@@ -51,11 +51,10 @@ const Products = ({ products, addToCart }) => {
             <p className="font-semibold pt-1 text-sm lg:text-base">
               ${product.price}
             </p>
-            <Link to={`/product/${product.id}`}>
-              <button className="mt-2 text-[#27493E] font-semibold text-sm lg:text-base transition duration-300 hover:bg-[#27493E] hover:text-white px-4 py-2 rounded-md">
-                Shop Now
-              </button>
-            </Link>
+                            <Link to={`/product/${product.unique_id}`}>
+                    <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] hover:text-white">
+                      Shop Now
+                    </button>
             <button onClick={() => handleAddToCart(product)} className="mt-1 text-xs md:text-sm lg:text-base">
               Add to Cart {product.quantity || 0}
             </button>
