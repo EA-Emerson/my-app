@@ -18,7 +18,7 @@ import Complete from "./pages/Complete";
 
 const App = () => {
   const [products, setProducts] = useState([]);
-  var totalPrice
+  
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
