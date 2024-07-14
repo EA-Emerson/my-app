@@ -75,14 +75,14 @@ const Home = ({ products }) => {
         </section>
 
         {/* Top Products Section */}
-        <section className="bg-[#FAF7F2] py-4 md:py-8 lg:py-12 w-full flex flex-col mx-auto">
+      <section className="bg-[#FAF7F2] py-4 md:py-8 lg:py-12 w-full flex flex-col mx-auto">
   <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold md:mb-6 mb-4 lg:mb-8">
     Top Products
   </h2>
-  <div className="grid w-4/5 mx-auto h-fit lg:h-full grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+  <div className="grid w-4/5 mx-auto h-fit lg:h-full grid-cols-3 md:grid-cols-3 gap-y-6 md:gap-y-8 lg:gap-y-12 gap-x-2 md:gap-x-6 lg:gap-x-8">
     {productCards.map((product) => (
       <div className="h-[20vh] lg:h-full" key={product.id}>
-        <div className="relative text-center lg:mb-[4rem] h-[25vh] md:h-[30vh] lg:h-full">
+        <div className="relative text-center mb-2 md:mb-4 lg:mb-6 h-[25vh] md:h-[30vh] lg:h-full">
           <Link to="/details">
             <img
               src={`https://api.timbu.cloud/images/${product.photos[0]?.url}`}
@@ -102,7 +102,7 @@ const Home = ({ products }) => {
               {product.name}
             </p>
           </Link>
-          <p className="font-semibold pt-2 md:pt-1 lg:pt-2 text-[10px] md:text-xs lg:text-sm">
+          <p className="font-semibold pt-1 md:pt-1 lg:pt-2 text-[10px] md:text-xs lg:text-sm">
             {product.current_price &&
               product.current_price[0] &&
               product.current_price[0].NGN &&
