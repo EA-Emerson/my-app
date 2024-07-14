@@ -58,7 +58,7 @@ const App = () => {
       setCartItems([...cartItems, { ...product, quantity }]);
     }
   };
-
+const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
   return (
     <Router>
       <Navbar />
@@ -68,7 +68,10 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/cart" element={<Cart cartItems={cartItems} totalPrice={totalPrice}/>} />
+          <Route path="/cart" element={<Cart cartItems={cartItems}
+      setCartItems={setCartItems}
+      products={products}
+      totalPrice={totalPrice}/>} />
           <Route path="/profile" element={<Profile />} />
           <Route
             path="/products"
