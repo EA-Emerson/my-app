@@ -43,7 +43,7 @@ const ProductDetails = ({ products, addToCart }) => {
           </Link>
           <span> / </span>
           <Link to="/products" className="text-sm">
-            Products
+            Products / 
           </Link>
           <span className="text-[#27493E] text-sm font-bold">
             {product.name}
@@ -73,7 +73,7 @@ const ProductDetails = ({ products, addToCart }) => {
         </div>
         <div className="w-full px-[4vw] lg:w-1/2">
           <h2 className="font-semibold text-lg md:text-2xl lg:text-3xl leading-loose">
-            {product.title}
+            {product.name}
           </h2>
           <p className="text-sm lg:text-base">{product.description}</p>
           <h2 className="font-semibold text-lg md:text-2xl lg:text-3xl leading-loose">
