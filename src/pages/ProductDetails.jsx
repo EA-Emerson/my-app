@@ -46,7 +46,7 @@ const ProductDetails = ({ products, addToCart }) => {
             Products
           </Link>
           <span className="text-[#27493E] text-sm font-bold">
-            {product.title}
+            {product.name}
           </span>
         </span>
       </div>
