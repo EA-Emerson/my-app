@@ -49,7 +49,7 @@ const Products = ({ products, addToCart }) => {
               {product.name}
             </p>
             <p className="font-semibold pt-1 text-sm lg:text-base">
-              NGN{product.current_price &&
+              {product.current_price &&
                       product.current_price[0] &&
                       product.current_price[0].NGN &&
                       product.current_price[0].NGN[0]
