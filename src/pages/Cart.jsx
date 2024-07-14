@@ -5,7 +5,7 @@ import del from "../assets/delete-svgrepo-com.png";
 import MoreProducts from "../components/MoreProducts";
 import back from "../assets/back-arrow-navigation-svgrepo-com.png";
 
-const Cart = ({ cartItems, products, totalPrice }) => {
+const Cart = ({ cartItems, products, totalPrice, setCartItems }) => {
   const [checkedItems, setCheckedItems] = useState(
     cartItems.reduce((acc, cartItem) => ({ ...acc, [cartItem.id]: true }), {})
   );
@@ -25,6 +25,10 @@ const Cart = ({ cartItems, products, totalPrice }) => {
       ...prevState,
       [id]: Math.max(1, prevState[id] + amount),
     }));
+  };
+
+  const handleDelete = (id) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
   const selectedItems = cartItems.filter(
@@ -111,7 +115,7 @@ const Cart = ({ cartItems, products, totalPrice }) => {
                         : `NGN${cartItem.price}`}
                     </span>
                     <div className="flex space-x-4">
-                      <button>
+                      <button onClick={() => handleDelete(cartItem.id)}>
                         <img className="h-5" src={del} alt="del" />
                       </button>
                       <button>
