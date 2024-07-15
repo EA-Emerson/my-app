@@ -40,4 +40,9 @@
 //       .then((data) => setRecords(data.items)) // Assuming `data.items` is an array of records
 //       .catch((err) => console.log(err));
 //   }, []);
-  
+[cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem("cartItems"))
+  );
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);

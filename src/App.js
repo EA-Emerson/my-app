@@ -18,8 +18,15 @@ import Complete from "./pages/Complete";
 
 const App = () => {
   const [products, setProducts] = useState([]);
-  
-  const [cartItems, setCartItems] = useState([]);
+
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem("cartItems")) || []
+  );
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+  const storedData = JSON.parse(localStorage.getItem("cartItems"));
+  console.log(storedData);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -44,20 +51,22 @@ const App = () => {
     fetchProducts();
   }, []);
 
+  // const addToCart = (product, quantity) => {
   const addToCart = (product, quantity) => {
-  const existingItem = cartItems.find((item) => item.id === product.unique_id);
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const itemIndex = cartItems.findIndex((item) => item.id === product.id);
 
-  if (existingItem) {
-    // If the item already exists in the cart, do nothing or handle as needed
-    // You might want to notify the user or adjust quantities in a different way
-    console.log(`Item ${product.name} is already in the cart.`);
-    return;
-  }
+    if (itemIndex > -1) {
+      cartItems[itemIndex].quantity += quantity;
+    } else {
+      product.quantity = quantity;
+      cartItems.push(product);
+    }
 
-  // If the item doesn't exist in the cart, add it with the specified quantity
-  setCartItems((prevCartItems) => [...prevCartItems, { ...product, quantity }]);
-};
-const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    setCartItems(cartItems);
+  };
+  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
   return (
     <Router>
       <Navbar />
@@ -67,10 +76,17 @@ const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/cart" element={<Cart cartItems={cartItems}
-      setCartItems={setCartItems}
-      products={products}
-      totalPrice={totalPrice}/>} />
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+                products={products}
+                totalPrice={totalPrice}
+              />
+            }
+          />
           <Route path="/profile" element={<Profile />} />
           <Route
             path="/products"
@@ -78,9 +94,20 @@ const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
           />
           <Route
             path="/product/:id"
-            element={<ProductDetails products={products} addToCart={addToCart} />}
+            element={
+              <ProductDetails products={products} addToCart={addToCart} />
+            }
           />
-          <Route path="/checkout" element={<Checkout products={products} cartItems={cartItems} totalPrice={totalPrice} />} />
+          <Route
+            path="/checkout"
+            element={
+              <Checkout
+                products={products}
+                cartItems={cartItems}
+                totalPrice={totalPrice}
+              />
+            }
+          />
           <Route path="/payment" element={<Payment />} />
           <Route path="/complete" element={<Complete />} />
         </Routes>
