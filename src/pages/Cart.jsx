@@ -58,7 +58,7 @@ const Cart = ({ cartItems, products, totalPrice, setCartItems }) => {
 
   return (
     <div>
-      <main className="container w-full mx-auto px-4 md:px-6 lg:pt-6 md:pt-2">
+      <main className="container w-full mx-auto px-8 lg:pt-6 md:pt-3 pt-1">
         <div>
           <span className="text-sm font-bold text-[#27493E]">
             <Link
