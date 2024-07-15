@@ -1,8 +1,11 @@
 // src/components/Payment.js
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 
 const Payment = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="container w-[86vw] mx-[auto] px-4 py-8">
       <Link className="text-sm" to="/cart">

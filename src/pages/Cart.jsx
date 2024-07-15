@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import favorite from "../assets/favorite-heart-love-svgrepo-com.png";
 import del from "../assets/delete-svgrepo-com.png";
@@ -12,7 +12,9 @@ const Cart = ({ cartItems, products, totalPrice, setCartItems }) => {
   const [quantities, setQuantities] = useState(
     cartItems.reduce((acc, cartItem) => ({ ...acc, [cartItem.id]: 1 }), {})
   );
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handleCheckboxChange = (id) => {
     setCheckedItems((prevState) => ({
       ...prevState,

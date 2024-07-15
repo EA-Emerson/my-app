@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 
 const Checkout = ({ cartItems }) => {
-  // Calculate total price considering quantities
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const calculateTotalPrice = () => {
     return cartItems.reduce((acc, item) => {
       const price =

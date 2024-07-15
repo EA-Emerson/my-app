@@ -1,12 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import filter from "../assets/filter-funnel-processing-svgrepo-com.png";
 import cart from "../assets/shopping-cart-svgrepo-com.png";
+import backToTop from "../assets/top-arrow-svgrepo-com.png"
 import { Link } from "react-router-dom";
 
 const Products = ({ products, addToCart }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    if (window.pageYOffset > window.innerHeight / 2) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
   const [activeButton, setActiveButton] = useState(2);
   const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, ">"];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handleButtonClick = (buttonNumber) => {
     setActiveButton(buttonNumber);
   };
@@ -66,6 +92,11 @@ const Products = ({ products, addToCart }) => {
             </button>
           </div>
         ))}
+      </div>
+      <div className="flex justify-end">
+      <div className="md:p-3 p-2 lg:p-4 rounded-full bg-[#27493E] w-fit cursor-pointer"  onClick={scrollToTop}>
+        <img className="md:w-7 md:h-7 w-6 h-6 lg:w-9 lg:h-9" src={backToTop} alt="back to top arrow" />
+      </div>
       </div>
       <div className="flex flex-wrap justify-center py-4">
         {pages.map((page, index) => (

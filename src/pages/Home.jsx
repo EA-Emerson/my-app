@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import Explore from "./Explore";
 import flower from "../assets/black flower vase.png";
@@ -8,7 +8,11 @@ import vase from "../assets/vase.png";
 import weirdStatue from "../assets/weird statues.png";
 import curtain from "../assets/curtain cate.png";
 
+
 const Home = ({ products }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const productCards = products.slice(0, 9);
 
   return (

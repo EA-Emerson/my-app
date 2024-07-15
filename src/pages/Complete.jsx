@@ -1,9 +1,12 @@
 // src/components/Complete.js
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import check from "../assets/check-svgrepo-com.png";
 
 const Complete = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className=" -black lg:w-[86vw] mx-[auto] md:px-3 px-2 lg:px-4 md:py-6 py-4 lg:py-8">
       <div className=" rounded-xl m-auto bg-[#FAF7F2] p-2 md:p-4 lg:p-6 flex flex-col items-center pt-4 md:pt-8 lg:pt-12 h-fit w-[90%] md:w-2/3 lg:w-1/2">

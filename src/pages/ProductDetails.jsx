@@ -1,15 +1,15 @@
 import { useParams, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TabComponent from "./TabComponent";
 import MoreProducts from "../components/MoreProducts";
 
 const ProductDetails = ({ products, addToCart }) => {
   const { id } = useParams();
-
-  // Find the product using unique_id instead of id
+useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const product = products.find((p) => p.unique_id === id);
-
-  // Ensure useState calls are at the top level
+  
   const [selectedColor, setSelectedColor] = useState(null);
   const [quantity, setQuantity] = useState(1);
 

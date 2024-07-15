@@ -17,6 +17,9 @@ import Payment from "./pages/Payment";
 import Complete from "./pages/Complete";
 
 const App = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [products, setProducts] = useState([]);
 
   const [cartItems, setCartItems] = useState(
