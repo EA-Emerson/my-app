@@ -141,7 +141,7 @@ const Checkout = ({ cartItems }) => {
               to="/payment"
               className="items-center px-[5vw] text-sm bg-[#27493E] text-white py-2 rounded-lg"
             >
-              Checkout Payment (${grandTotal.toFixed(2)})
+              Checkout Payment (NGN{grandTotal.toFixed(2)})
             </Link>
           </div>
         </div>
