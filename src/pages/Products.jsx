@@ -5,15 +5,6 @@ import backToTop from "../assets/top-arrow-svgrepo-com.png"
 import { Link } from "react-router-dom";
 
 const Products = ({ products, addToCart }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const toggleVisibility = () => {
-    if (window.pageYOffset > window.innerHeight / 2) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -21,11 +12,6 @@ const Products = ({ products, addToCart }) => {
       behavior: 'smooth',
     });
   };
-
-  useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
 
   const [activeButton, setActiveButton] = useState(2);
   const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, ">"];
