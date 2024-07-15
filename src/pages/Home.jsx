@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Explore from "./Explore";
 import flower from "../assets/black flower vase.png";
 import fatLight from "../assets/fat lights.png";
-import cart from "../assets/shopping-cart-product-svgrepo-com.png";
+import cart from "../assets/shopping-cart-svgrepo-com.png";
 import vase from "../assets/vase.png";
 import weirdStatue from "../assets/weird statues.png";
 import curtain from "../assets/curtain cate.png";
@@ -81,19 +81,19 @@ const Home = ({ products }) => {
   </h2>
   <div className="grid w-4/5 mx-auto h-fit lg:h-full grid-cols-3 md:grid-cols-3 gap-y-6 md:gap-y-8 lg:gap-y-12 gap-x-2 md:gap-x-6 lg:gap-x-8">
     {productCards.map((product) => (
-      <div className="h-[20vh] lg:h-full" key={product.id}>
-        <div className="relative text-center mb-2 md:mb-4 lg:mb-6 h-[25vh] md:h-[30vh] lg:h-full">
+      // <div className="h-[20vh] lg:h-full" key={product.id}>
+        <div className="relative text-center mb:2 md:mb-4 lg:mb-7" key={product.id}>
           <Link to="/details">
             <img
               src={`https://api.timbu.cloud/images/${product.photos[0]?.url}`}
-              className="cover-fill h-1/2 md:h-2/3 lg:h-full w-full rounded-lg md:rounded-2xl lg:rounded-3xl cursor-pointer"
+              className="object-cover h-28 md:h-80 lg:h-96 w-full rounded-xl cursor-pointer"
               alt={product.name}
             />
           </Link>
 
           <Link
             to="/cart"
-            className="absolute top-1 right-1 lg:top-2 lg:right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 md:px-2 px-1 lg:px-3 py-1 lg:py-2 rounded-md text-sm font-medium flex items-center transition transform duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg"
+            className="absolute top-1 right-1 lg:top-2 lg:right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 md:px-2 px-1 lg:px-3 py-1 lg:py-2 rounded-md text-sm font-medium flex items-center transition transform duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg bg-white bg-opacity-80"
           >
             <img className="w-5" src={cart} alt="cart" />
           </Link>
@@ -116,7 +116,7 @@ const Home = ({ products }) => {
             </button>
           </Link>
         </div>
-      </div>
+      // </div>
     ))}
   </div>
   <div className="m-auto">

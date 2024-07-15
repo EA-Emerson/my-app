@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import filter from "../assets/filter-funnel-processing-svgrepo-com.png";
-import cart from "../assets/shopping-cart-product-svgrepo-com.png";
+import cart from "../assets/shopping-cart-svgrepo-com.png";
 import { Link } from "react-router-dom";
 
 const Products = ({ products, addToCart }) => {
@@ -41,11 +41,11 @@ const Products = ({ products, addToCart }) => {
             />
             <Link
               to="/cart"
-              className="absolute top-2 right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-1 lg:px-4 lg:py-2 rounded-md text-sm font-medium flex items-center transition duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg"
+              className="absolute top-2 right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-3 py-1 lg:px-4 lg:py-2 rounded-md text-sm font-medium flex items-center transition duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg bg-white bg-opacity-80"
             >
               <img className="w-5" src={cart} alt="cart" />
             </Link>
-            <p className="font-semibold pt-2 text-sm lg:text-base">
+            <p className="font-semibold pt-2 md:pt-1 lg:pt-2 text-[9px] md:text-xs lg:text-sm truncate w-full">
               {product.name}
             </p>
             <p className="font-semibold pt-1 text-sm lg:text-base">
@@ -61,7 +61,7 @@ const Products = ({ products, addToCart }) => {
                       Shop Now
                     </button>
 </Link>
-            <button onClick={() => handleAddToCart(product)} className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] block hover:text-white">
+            <button onClick={() => handleAddToCart(product)} className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] block hover:text-white m-auto">
               Add to Cart
             </button>
           </div>
