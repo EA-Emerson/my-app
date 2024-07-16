@@ -5,16 +5,33 @@ import del from "../assets/delete-svgrepo-com.png";
 import MoreProducts from "../components/MoreProducts";
 import back from "../assets/back-arrow-navigation-svgrepo-com.png";
 
-const Cart = ({ cartItems, products, totalPrice, setCartItems }) => {
+const Cart = ({ cartItems, products, setTotalPriceUpdate, setCartItems }) => {
   const [checkedItems, setCheckedItems] = useState(
     cartItems.reduce((acc, cartItem) => ({ ...acc, [cartItem.id]: true }), {})
   );
   const [quantities, setQuantities] = useState(
-    cartItems.reduce((acc, cartItem) => ({ ...acc, [cartItem.id]: 1 }), {})
+    cartItems.reduce((acc, cartItem) => ({ ...acc, [cartItem.id]: cartItem.quantity }), {})
   );
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const selectedItems = cartItems.filter(
+      (cartItem) => checkedItems[cartItem.id]
+    );
+
+    const totalPrice = selectedItems.reduce((total, cartItem) => {
+      const price = cartItem.current_price?.[0]?.NGN?.[0] ?? cartItem.price;
+      const itemTotalPrice = price * quantities[cartItem.id];
+      cartItem.price = itemTotalPrice;
+      return total + itemTotalPrice;
+    }, 0);
+
+    setTotalPriceUpdate(totalPrice);
+  }, [quantities, cartItems, setCartItems, setTotalPriceUpdate, checkedItems]);
+
   const handleCheckboxChange = (id) => {
     setCheckedItems((prevState) => ({
       ...prevState,
@@ -37,25 +54,13 @@ const Cart = ({ cartItems, products, totalPrice, setCartItems }) => {
     (cartItem) => checkedItems[cartItem.id]
   );
 
-  totalPrice = selectedItems.reduce((total, cartItem) => {
-    const price =
-      cartItem.current_price &&
-      cartItem.current_price[0] &&
-      cartItem.current_price[0].NGN &&
-      cartItem.current_price[0].NGN[0]
-        ? cartItem.current_price[0].NGN[0]
-        : cartItem.price; // Fallback to original price if dynamic price not available
-
+  const totalPrice = selectedItems.reduce((total, cartItem) => {
+    const price = cartItem.current_price?.[0]?.NGN?.[0] ?? cartItem.price;
     const itemTotalPrice = price * quantities[cartItem.id];
-
-    // Update the cart item price directly for display purposes
-    cartItem.displayPrice = itemTotalPrice;
-
+    cartItem.price = itemTotalPrice;
     return total + itemTotalPrice;
   }, 0);
-
-  const totalCheckedItems = selectedItems.length;
-
+setTotalPriceUpdate(totalPrice)
   return (
     <div>
       <main className="container w-full mx-auto px-8 lg:pt-6 md:pt-3 pt-1">
@@ -175,7 +180,7 @@ const Cart = ({ cartItems, products, totalPrice, setCartItems }) => {
               </div>
               <Link to="/checkout">
                 <button className="w-full mt-4 text-[10px] md:text-sm lg:text-base px-[5vw] py-3 text-center bg-[#27493E] text-white rounded-lg">
-                  Checkout ({totalCheckedItems})
+                  Checkout
                 </button>
               </Link>
             </div>
@@ -210,7 +215,7 @@ const Cart = ({ cartItems, products, totalPrice, setCartItems }) => {
             </div>
             <Link to="/checkout">
               <button className="w-full mt-4 text-[10px] md:text-sm lg:text-base px-[5vw] py-3 text-center bg-[#27493E] text-white rounded-lg">
-                Checkout ({totalCheckedItems})
+                Checkout
               </button>
             </Link>
           </div>

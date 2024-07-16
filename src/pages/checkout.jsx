@@ -1,25 +1,11 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Checkout = ({ cartItems }) => {
+const Checkout = ({ totalPrice }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const calculateTotalPrice = () => {
-    return cartItems.reduce((acc, item) => {
-      const price =
-        item.current_price &&
-        item.current_price[0] &&
-        item.current_price[0].NGN &&
-        item.current_price[0].NGN[0]
-          ? parseFloat(item.current_price[0].NGN[0])
-          : parseFloat(item.price);
-      return acc + price * item.quantity;
-    }, 0);
-  };
-
-  const totalPrice = calculateTotalPrice();
-  const shippingCost = 80; // Default shipping cost
+  const shippingCost = 80;
   const grandTotal = totalPrice + shippingCost;
 
   return (
@@ -43,7 +29,7 @@ const Checkout = ({ cartItems }) => {
       </div>
       <div className="flex flex-col md:flex-row justify-between space-y-6 md:space-y-0 md:space-x-6">
         <div className="w-full md:w-2/3">
-        <form className="space-y-4">
+          <form className="space-y-4">
             <div>
               <label className="block font-semibold">Full Name</label>
               <input
@@ -125,7 +111,9 @@ const Checkout = ({ cartItems }) => {
                 defaultChecked
               />
               <span className="ml-2 text-sm">Standard Shipping</span>
-              <span className="ml-auto text-sm">${shippingCost.toFixed(2)}</span>
+              <span className="ml-auto text-sm">
+                ${shippingCost.toFixed(2)}
+              </span>
             </label>
           </div>
           {/* Additional shipping options */}

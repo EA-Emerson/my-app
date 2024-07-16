@@ -5,7 +5,7 @@ import MoreProducts from "../components/MoreProducts";
 
 const ProductDetails = ({ products, addToCart }) => {
   const { id } = useParams();
-useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const product = products.find((p) => p.unique_id === id);
