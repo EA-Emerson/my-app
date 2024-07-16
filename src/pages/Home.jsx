@@ -13,7 +13,7 @@ const Home = ({ products }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const productCards = products.slice(0, 9);
+  const productCards = products ? products.slice(0, 9) : [];
 
   return (
     <div>
