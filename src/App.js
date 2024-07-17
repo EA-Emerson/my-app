@@ -73,7 +73,7 @@ const App = () => {
   }, 0);
   
   const [totalPriceUpdate, setTotalPriceUpdate] = useState(totalPrice);
-
+console.log(totalPriceUpdate)
   return (
     <Router>
       <Navbar />
@@ -90,7 +90,7 @@ const App = () => {
                 cartItems={cartItems}
                 setCartItems={setCartItems}
                 products={products}
-                totalPrice={totalPrice}
+                totalPrice={totalPriceUpdate}
                 setTotalPriceUpdate={setTotalPriceUpdate}
               />
             }
