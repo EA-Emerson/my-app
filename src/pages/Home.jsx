@@ -9,12 +9,23 @@ import weirdStatue from "../assets/weird statues.png";
 import curtain from "../assets/curtain cate.png";
 
 const Home = ({ products }) => {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  console.log(products)
-      const productCards = products.slice(0, 9);
-      console.log(productCards)
+
+  useEffect(() => {
+    if (products && products.length > 0) {
+      setLoading(false);
+    }
+  }, [products]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const productCards = products.slice(0, 9);
   return (
     <div>
       <Explore />
