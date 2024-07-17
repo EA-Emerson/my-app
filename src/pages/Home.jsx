@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Explore from "./Explore";
 import flower from "../assets/black flower vase.png";
@@ -8,13 +8,13 @@ import vase from "../assets/vase.png";
 import weirdStatue from "../assets/weird statues.png";
 import curtain from "../assets/curtain cate.png";
 
-
 const Home = ({ products }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const productCards = products.slice(0, 9);
-
+  console.log(products)
+      const productCards = products.slice(0, 9);
+      console.log(productCards)
   return (
     <div>
       <Explore />
@@ -79,58 +79,61 @@ const Home = ({ products }) => {
         </section>
 
         {/* Top Products Section */}
-      <section className="bg-[#FAF7F2] py-4 md:py-8 lg:py-12 w-full flex flex-col mx-auto">
-  <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold md:mb-6 mb-4 lg:mb-8">
-    Top Products
-  </h2>
-  <div className="grid w-4/5 mx-auto h-fit lg:h-full grid-cols-3 md:grid-cols-3 gap-y-6 md:gap-y-8 lg:gap-y-12 gap-x-2 md:gap-x-6 lg:gap-x-8">
-    {productCards.map((product) => (
-      // <div className="h-[20vh] lg:h-full" key={product.id}>
-        <div className="relative text-center mb:2 md:mb-4 lg:mb-7" key={product.id}>
-          <Link to="/details">
-            <img
-              src={`https://api.timbu.cloud/images/${product.photos[0]?.url}`}
-              className="object-cover h-28 md:h-80 lg:h-96 w-full rounded-xl cursor-pointer"
-              alt={product.name}
-            />
-          </Link>
+        <section className="bg-[#FAF7F2] py-4 md:py-8 lg:py-12 w-full flex flex-col mx-auto">
+          <h2 className="md:text-2xl text-xl lg:text-3xl text-center font-bold md:mb-6 mb-4 lg:mb-8">
+            Top Products
+          </h2>
+          <div className="grid w-4/5 mx-auto h-fit lg:h-full grid-cols-3 md:grid-cols-3 gap-y-6 md:gap-y-8 lg:gap-y-12 gap-x-2 md:gap-x-6 lg:gap-x-8">
+            {productCards.map((product) => (
+              // <div className="h-[20vh] lg:h-full" key={product.id}>
+              <div
+                className="relative text-center mb:2 md:mb-4 lg:mb-7"
+                key={product.id}
+              >
+                <Link to="/details">
+                  <img
+                    src={`https://api.timbu.cloud/images/${product.photos[0]?.url}`}
+                    className="object-cover h-28 md:h-80 lg:h-96 w-full rounded-xl cursor-pointer"
+                    alt={product.name}
+                  />
+                </Link>
 
-          <Link
-            to="/cart"
-            className="absolute top-1 right-1 lg:top-2 lg:right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 md:px-2 px-1 lg:px-3 py-1 lg:py-2 rounded-md text-sm font-medium flex items-center transition transform duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg bg-white bg-opacity-80"
-          >
-            <img className="w-5" src={cart} alt="cart" />
-          </Link>
-          <Link to="/details">
-            <p className="font-semibold pt-2 md:pt-1 lg:pt-2 text-[9px] md:text-xs lg:text-sm truncate w-full">
-              {product.name}
-            </p>
-          </Link>
-          <p className="font-semibold pt-1 md:pt-1 lg:pt-2 text-[10px] md:text-xs lg:text-sm">
-            {product.current_price &&
-              product.current_price[0] &&
-              product.current_price[0].NGN &&
-              product.current_price[0].NGN[0]
-                ? `NGN${product.current_price[0].NGN[0]}`
-                : `NGN${product.price}`}
-          </p>
-          <Link to={`/product/${product.unique_id}`}>
-            <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] hover:text-white">
-              Shop Now
-            </button>
-          </Link>
-        </div>
-      // </div>
-    ))}
-  </div>
-  <div className="m-auto">
-    <Link to="/products">
-      <button className="my-4 py-5 px-24 rounded-2xl bg-[#27493E] font-semibold text-white m-auto">
-        View All
-      </button>
-    </Link>
-  </div>
-</section>
+                <Link
+                  to="/cart"
+                  className="absolute top-1 right-1 lg:top-2 lg:right-2 text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 md:px-2 px-1 lg:px-3 py-1 lg:py-2 rounded-md text-sm font-medium flex items-center transition transform duration-300 hover:scale-110 hover:bg-gray-200 hover:shadow-lg bg-white bg-opacity-80"
+                >
+                  <img className="w-5" src={cart} alt="cart" />
+                </Link>
+                <Link to="/details">
+                  <p className="font-semibold pt-2 md:pt-1 lg:pt-2 text-[9px] md:text-xs lg:text-sm truncate w-full">
+                    {product.name}
+                  </p>
+                </Link>
+                <p className="font-semibold pt-1 md:pt-1 lg:pt-2 text-[10px] md:text-xs lg:text-sm">
+                  {product.current_price &&
+                  product.current_price[0] &&
+                  product.current_price[0].NGN &&
+                  product.current_price[0].NGN[0]
+                    ? `NGN${product.current_price[0].NGN[0]}`
+                    : `NGN${product.price}`}
+                </p>
+                <Link to={`/product/${product.unique_id}`}>
+                  <button className="mt-1 md:mt-2 lg:mt-2 text-[#27493E] font-semibold text-[9px] md:text-sm lg:text-base transition transform duration-300 hover:bg-[#27493E] hover:text-white">
+                    Shop Now
+                  </button>
+                </Link>
+              </div>
+              // </div>
+            ))}
+          </div>
+          <div className="m-auto">
+            <Link to="/products">
+              <button className="my-4 py-5 px-24 rounded-2xl bg-[#27493E] font-semibold text-white m-auto">
+                View All
+              </button>
+            </Link>
+          </div>
+        </section>
       </main>
     </div>
   );
